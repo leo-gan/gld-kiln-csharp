@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Kiln</RootNamespace>
+    <AssemblyName>Kiln</AssemblyName>
+    <PackageId>Gld.Kiln</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Leonid Ganeline</Authors>
+    <Description>From-scratch Kiln wire v2 for C#.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+</Project>

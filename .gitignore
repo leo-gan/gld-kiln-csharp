@@ -10,3 +10,5 @@ dist/
 *.user
 TestResults/
 examples/generated/
+__pycache__/
+*.pyc
