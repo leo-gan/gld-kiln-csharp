@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <AssemblyName>gld-kilngen-csharp</AssemblyName>
     <RootNamespace>Gld.Kilngen</RootNamespace>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Authors>Leonid Ganeline</Authors>
     <Description>Generate C# structs from a Kiln JSON Schema.</Description>
   </PropertyGroup>
