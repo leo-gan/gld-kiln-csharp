@@ -1,0 +1,12 @@
+temp/
+.env
+.env.*
+!.env.example
+site/
+bin/
+obj/
+dist/
+.vs/
+*.user
+TestResults/
+examples/generated/
