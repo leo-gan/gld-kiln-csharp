@@ -6,7 +6,7 @@
     <RootNamespace>Kiln</RootNamespace>
     <AssemblyName>Kiln</AssemblyName>
     <PackageId>Gld.Kiln</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Authors>Leonid Ganeline</Authors>
     <Description>From-scratch Kiln wire v2 for C#.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
