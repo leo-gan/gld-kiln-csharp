@@ -169,15 +169,8 @@ static class Scalars
         return copy;
     }
 
-    public static void WriteUtf8(Writer writer, string text, int cap)
-    {
-        var length = Encoding.UTF8.GetByteCount(text);
-        if (length > cap)
-            throw new KilnException("LIMIT");
-        WriteU32(writer, (uint)length);
-        if (length > 0)
-            Encoding.UTF8.GetBytes(text, writer.Reserve(length));
-    }
+    public static void WriteUtf8(Writer writer, string text, int cap) =>
+        writer.WriteString(text, cap);
 
     public static string ReadString(ReadOnlySpan<byte> buf, ref int index, int cap, bool trusted)
     {
@@ -186,15 +179,21 @@ static class Scalars
             throw new KilnException("LIMIT");
         if ((uint)index > (uint)buf.Length || (ulong)(buf.Length - index) < length)
             throw new KilnException("EOF");
-        var text = DecodeUtf8(buf.Slice(index, (int)length), trusted);
+        var raw = buf.Slice(index, (int)length);
         index += (int)length;
-        return text;
+        if (raw.Length == 0)
+            return "";
+        if (Ascii.IsValid(raw))
+            return Encoding.ASCII.GetString(raw);
+        return DecodeUtf8(raw, trusted);
     }
 
     public static string DecodeUtf8(ReadOnlySpan<byte> raw, bool trusted)
     {
         if (trusted)
             return Encoding.UTF8.GetString(raw);
+        if (Ascii.IsValid(raw))
+            return Encoding.ASCII.GetString(raw);
         try
         {
             return StrictUtf8.GetString(raw);

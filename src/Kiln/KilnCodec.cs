@@ -4,7 +4,7 @@ namespace Kiln;
 
 public static class KilnCodec
 {
-    public const string Version = "0.2.0";
+    public const string Version = "0.2.1";
 
     public static int MinSize(Schema schema) => Scalars.MinSize(schema);
 
